@@ -165,7 +165,15 @@ h1 {
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+/*Pop Up Inneres Image */
+.popup-inner-content img {
+    max-width: 100%;
+    max-height: 300px; /* oder eine andere feste Höhe */
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Zentriert das Bild */
+}
 /* Schließen-Button */
 .close-btn {
     position: absolute;

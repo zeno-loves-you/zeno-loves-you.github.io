@@ -77,14 +77,14 @@ h1 {
 /* Linker Flügel */
 .left-wing {
     left: -30px; /* Position links vom Türchen */
-    background-image: url('images/wing_left.png'); /* Verwende das linke Flügelbild */
+    background-image: url('images/images/wing_left.png'); /* Verwende das linke Flügelbild */
     transform: rotate(-15deg); /* Leichte Drehung für natürliches Aussehen */
 }
 
 /* Rechter Flügel */
 .right-wing {
     right: -30px; /* Position rechts vom Türchen */
-    background-image: url('images/wing_right.png'); /* Verwende das rechte Flügelbild */
+    background-image: url('images/images/wing_right.png'); /* Verwende das rechte Flügelbild */
     transform: rotate(15deg); /* Leichte Drehung in die andere Richtung */
     animation-delay: 0.3s; /* Verzögerung für asynchrone Bewegung */
 }

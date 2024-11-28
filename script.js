@@ -111,12 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const showPopup = (title, content) => {
+    const showPopup = (title, content, media) => {
         const popup = document.getElementById("popup");
         const popupInnerContent = document.getElementById("popup-inner-content");
         popupInnerContent.innerHTML = `
         <h2>${title}</h2>
-        <p>${content}</p>
+        <p>${content}</p> 
+        <img src="${media.image}" />
+        
         `;
         applyRandomStyleToElement(popupInnerContent.querySelector('h2'), title);
 

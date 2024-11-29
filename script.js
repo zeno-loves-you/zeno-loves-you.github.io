@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const zwergContainer = document.getElementById("zwerg-container");
     const numDoors = 24;
 
-    const headImages = Array.from({ length: 24 }, (_, i) => `images/images/kopf${i + 1}.png`);
+    const headImages = Array.from({ length: 24 }, (_, i) => `images/kopf${i + 1}.png`);
     const fonts = ['sans-serif', 'sans', 'inter'];
     const fontWeights = ['400', '500', '700', '900'];
     const colors = [
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Inhalte für jedes Türchen
     const doorContents = [
-        { title: "Tag 1", message: "Ein Schokoladenstern wartet auf dich!", image: "images/images/kopf1.png"},
+        { title: "Tag 1", message: "Ein Schokoladenstern wartet auf dich!", image: "images/kopf1.png"},
         { title: "Tag 2", message: "Heute ist ein guter Tag für heiße Schokolade." },
         { title: "Tag 3", message: "Ein Moment der Ruhe – genieße eine Kerze." },
         { title: "Tag 4", message: "Zeit für eine kleine Auszeit – mach es dir gemütlich!" },
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
     window.onload = function () {
-    let password = prompt("Bitte geben Sie das Passwort ein, um Zugriff zu erhalten:");
+    let password = prompt("Du bist meine:");
     if (password !== "RP") {
         alert("Falsches Passwort! Zugriff verweigert.");
         document.body.innerHTML = ""; // Verhindert Zugriff

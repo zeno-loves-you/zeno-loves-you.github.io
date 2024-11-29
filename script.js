@@ -117,7 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
         popupInnerContent.innerHTML = `
         <h2>${title}</h2>
         <p>${content}</p> 
-        <img src="${media.image}" />
+         <img src="${media.image}" style="max-width: 100%; max-height: 300px; width: auto; height: auto;" />
+    
         
         `;
         applyRandomStyleToElement(popupInnerContent.querySelector('h2'), title);

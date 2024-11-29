@@ -179,4 +179,8 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Falsches Passwort! Zugriff verweigert.");
         document.body.innerHTML = ""; // Verhindert Zugriff
     }
+    const backgroundImage = new Image();
+backgroundImage.src = 'images/winter-background.jpg';
+backgroundImage.onload = () => console.log('Hintergrundbild geladen!');
+backgroundImage.onerror = () => console.error('Hintergrundbild konnte nicht geladen werden!');
 };

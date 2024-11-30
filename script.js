@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Inhalte für jedes Türchen
     const doorContents = [
-        { title: "Tag 1", message: "Ein Schokoladenstern wartet auf dich!", image: "images/kopf1.png"},
-        { title: "Tag 2", message: "Heute ist ein guter Tag für heiße Schokolade." },
+        { title: "Tag 1", message: "Ho ho ho, meine Liebe, die Weihnachtszeit hat an angefangen. Ich hoffe, dass du viel Freude mit dem Kalender haben wirst. </br> & Wie startet man besser in die Weihnachtszeit, als mit der richtigen musikalischen Untermalung? <3 </br> In Liebe Z", link: "https://www.youtube.com/watch?v=yXQViqx6GMY"},
+        { title: "Tag 2", message: "Ho ho ho, meine Liebe, heute gibt es was in Person! </br> Hier ein Tipp: Gewürze sind entscheiden für den charakteristischen Geschmack. Dazu gehören Zimt, Nelken, Muskatnuss, Kardamom, Ingwer und Piment. <br/> Kannst du erraten, was es ist? <br/> Bis später :-*" },
         { title: "Tag 3", message: "Ein Moment der Ruhe – genieße eine Kerze." },
         { title: "Tag 4", message: "Zeit für eine kleine Auszeit – mach es dir gemütlich!" },
         { title: "Tag 5", message: "Ein Stern für deinen Tag – strahle heute besonders hell!" },
@@ -103,7 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const media = {
                 image: content.image || null,
                 video: content.video || null,
-                audio: content.audio || null
+                audio: content.audio || null,
+                link: content.link || null // Fügt den Link hinzu, falls vorhanden
             };
             showPopup(content.title, content.message, media);
         } else {
@@ -114,13 +115,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const showPopup = (title, content, media) => {
         const popup = document.getElementById("popup");
         const popupInnerContent = document.getElementById("popup-inner-content");
+        
+            // HTML für den Link hinzufügen, wenn er existiert
+        const linkHTML = media.link 
+        ? `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Nr. 1 Weihnachtshit</a>` 
+        : '';
+
+        
         popupInnerContent.innerHTML = `
         <h2>${title}</h2>
-        <p>${content}</p> 
-         <img src="${media.image}" style="max-width: 100%; max-height: 300px; width: auto; height: auto;" />
-    
-        
-        `;
+        <p>${content}</p>
+        ${media.image ? `<img src="${media.image}" style="max-width: 100%; max-height: 300px; display: block; margin: 10px auto;" />` : ''}
+        ${linkHTML}
+    `;
         applyRandomStyleToElement(popupInnerContent.querySelector('h2'), title);
 
         popup.style.display = "flex";
@@ -174,13 +181,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
     window.onload = function () {
-    let password = prompt("Du bist meine:");
+    let password = prompt("Du bist meine (Kurzform, Großbuchstaben):");
     if (password !== "RP") {
-        alert("Falsches Passwort! Zugriff verweigert.");
+        alert("Falsches Passwort! Versuchs nochmal.");
         document.body.innerHTML = ""; // Verhindert Zugriff
     }
-    const backgroundImage = new Image();
-backgroundImage.src = 'images/winter-background.jpg';
-backgroundImage.onload = () => console.log('Hintergrundbild geladen!');
-backgroundImage.onerror = () => console.error('Hintergrundbild konnte nicht geladen werden!');
+const backgroundImage = new Image();
+    backgroundImage.src = 'images/winter-background.jpg';
+    backgroundImage.onload = () => console.log('Hintergrundbild geladen!');
+    backgroundImage.onerror = () => console.error('Hintergrundbild konnte nicht geladen werden!');
 };
+

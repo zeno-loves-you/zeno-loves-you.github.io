@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const doorContents = [
         { title: "Tag 1", message: "Ho ho ho, meine Liebe, die Weihnachtszeit hat an angefangen. Ich hoffe, dass du viel Freude mit dem Kalender haben wirst. </br> & Wie startet man besser in die Weihnachtszeit, als mit der richtigen musikalischen Untermalung? <3 </br> In Liebe Z", link: "https://www.youtube.com/watch?v=yXQViqx6GMY"},
         { title: "Tag 2", message: "Ho ho ho, meine Liebe, heute gibt es was in Person! </br> Hier ein Tipp: Gewürze sind entscheiden für den charakteristischen Geschmack. Dazu gehören Zimt, Nelken, Muskatnuss, Kardamom, Ingwer und Piment. <br/> Kannst du erraten, was es ist? <br/> Bis später :-*" },
-        { title: "Tag 3", message: "Ein Moment der Ruhe – genieße eine Kerze." },
+        { title: "Tag 3", message: "Ho ho ho, meine Liebe, heute gibt es ein Rezept: ." },
         { title: "Tag 4", message: "Zeit für eine kleine Auszeit – mach es dir gemütlich!" },
         { title: "Tag 5", message: "Ein Stern für deinen Tag – strahle heute besonders hell!" },
         { title: "Tag 6", message: "Der Nikolaus hat dir eine kleine Freude hinterlassen." },
@@ -88,6 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
         number.classList.add("door-number");
         applyRandomStyleToElement(number, day.toString());
         door.appendChild(number);
+
+        // Flügel hinzufügen
+        const leftWing = document.createElement("div");
+        leftWing.classList.add("wing", "left-wing");
+        door.appendChild(leftWing);
+
+        const rightWing = document.createElement("div");
+        rightWing.classList.add("wing", "right-wing");
+        door.appendChild(rightWing);
 
         door.style.animation = `randomMove ${Math.random() * 20 + 20}s ease-in-out infinite alternate`;
 

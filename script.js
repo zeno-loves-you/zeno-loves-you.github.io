@@ -146,13 +146,18 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("popup").style.display = "none";
     };
 
+    // Steuerung: Zwerge aktivieren oder deaktivieren
+    const showZwerge = false; // Ändere auf `true`, um die Zwerge zu aktivieren
+
+    // Funktion zur Zwerg-Erstellung
     const createZwerg = () => {
         const zwerg = document.createElement("img");
-        zwerg.src = "images/zwerg.png";
+        zwerg.src = "images/zwerg.png"; // Pfad zum Zwerg-Bild
         zwerg.classList.add("zwerg");
         zwerg.style.transform = "scaleX(-1)";
-        zwergContainer.appendChild(zwerg);
-        setTimeout(() => zwerg.remove(), 15000);
+        document.getElementById("zwerg-container").appendChild(zwerg);
+
+        setTimeout(() => zwerg.remove(), 15000); // Entfernt den Zwerg nach 15 Sekunden
     };
 
     const createSnowflake = () => {
@@ -180,7 +185,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialisierungen
     applyRandomStyleToElement(document.querySelector('.title'), document.querySelector('.title').innerText);
-    setInterval(createZwerg, 3000);
+    // Starte die Zwerg-Animation nur, wenn aktiviert
+    if (showZwerge) {
+        setInterval(createZwerg, 3000);
+        }
     setInterval(createSnowflake, 300);
 
     // Event Listener

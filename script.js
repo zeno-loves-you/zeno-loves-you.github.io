@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const doorContents = [
         { title: "Tag 1", message: "Ho ho ho, meine Liebe, die Weihnachtszeit hat an angefangen. Ich hoffe, dass du viel Freude mit dem Kalender haben wirst. </br> & Wie startet man besser in die Weihnachtszeit, als mit der richtigen musikalischen Untermalung? <3 </br> In Liebe Z", link: "https://www.youtube.com/watch?v=yXQViqx6GMY"},
         { title: "Tag 2", message: "Ho ho ho, meine Liebe, heute gibt es was in Person! </br> Hier ein Tipp: Gewürze sind entscheiden für den charakteristischen Geschmack. Dazu gehören Zimt, Nelken, Muskatnuss, Kardamom, Ingwer und Piment. <br/> Kannst du erraten, was es ist? <br/> Bis später :-*" },
-        { title: "Tag 3", message: "Ho ho ho, meine Liebe, heute gibt es ein kleine Bastelaufgabe, wir wollen ja eine weihnachtliche Deko zu Huase haben.", link: "https://youtu.be/jc22gvF4spk?si=u_zDxRmENhKfitVp"},
+        { title: "Tag 3", message: "Ho ho ho, meine Liebe, heute gibt es eine kleine Bastelaufgabe. Wir wollen ja eine weihnachtliche Deko zu Hause haben.", link: "https://youtu.be/jc22gvF4spk?si=u_zDxRmENhKfitVp"},
         { title: "Tag 4", message: "Zeit für eine kleine Auszeit – mach es dir gemütlich!" },
         { title: "Tag 5", message: "Ein Stern für deinen Tag – strahle heute besonders hell!" },
         { title: "Tag 6", message: "Der Nikolaus hat dir eine kleine Freude hinterlassen." },

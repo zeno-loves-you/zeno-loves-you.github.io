@@ -162,47 +162,6 @@ const showPopup = (title, content, media) => {
 
     const closePopup = () => {
         document.getElementById("popup").style.display = "none";
-    };const showPopup = (title, content, media) => {
-        const popup = document.getElementById("popup");
-        const popupInnerContent = document.getElementById("popup-inner-content");
-
-        // Erstelle HTML für Medieninhalte
-        let mediaHTML = '';
-        if (media.image) {
-            mediaHTML += `<img src="${media.image}" alt="Popup Image" style="max-width: 100%; max-height: 300px; display: block; margin: 10px auto;">`;
-        }
-        if (media.audio) {
-            mediaHTML += `
-                <audio controls style="display: block; margin: 10px auto;">
-                    <source src="${media.audio}" type="audio/mpeg">
-                    Dein Browser unterstützt das Audio-Element nicht.
-                </audio>`;
-        }
-        if (media.video) {
-            mediaHTML += `
-                <video controls style="max-width: 100%; max-height: 300px; display: block; margin: 10px auto;">
-                 <source src="${media.video}" type="video/mp4">
-                 Dein Browser unterstützt das Video-Element nicht.
-                </video>`;
-        }
-        if (media.link) {
-            mediaHTML += `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Hier klicken für die Überraschung</a>`;
-        }
-
-        // Setze den Pop-up-Inhalt
-        popupInnerContent.innerHTML = `
-            <h2>${title}</h2>
-            <p>${content}</p>
-            ${mediaHTML}
-        `;
-    
-        applyRandomStyleToElement(popupInnerContent.querySelector('h2'), title);
-
-        popup.style.display = "flex";
-    };
-
-    const closePopup = () => {
-        document.getElementById("popup").style.display = "none";
     };
 
     // Steuerung: Zwerge aktivieren oder deaktivieren

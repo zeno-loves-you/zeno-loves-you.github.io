@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 1", message: "Ho ho ho, meine Liebe, die Weihnachtszeit hat an angefangen. Ich hoffe, dass du viel Freude mit dem Kalender haben wirst. </br> & Wie startet man besser in die Weihnachtszeit, als mit der richtigen musikalischen Untermalung? <3 </br> In Liebe Z", link: "https://www.youtube.com/watch?v=yXQViqx6GMY"},
         { title: "Tag 2", message: "Ho ho ho, meine Liebe, heute gibt es was in Person! </br> Hier ein Tipp: Gewürze sind entscheiden für den charakteristischen Geschmack. Dazu gehören Zimt, Nelken, Muskatnuss, Kardamom, Ingwer und Piment. <br/> Kannst du erraten, was es ist? <br/> Bis später :-*" },
         { title: "Tag 3", message: "Ho ho ho, meine Liebe, heute gibt es eine kleine Bastelaufgabe. Wir wollen ja eine weihnachtliche Deko zu Hause haben.", link: "https://youtu.be/jc22gvF4spk?si=u_zDxRmENhKfitVp"},
-        { title: "Tag 4", message: "Zeit für eine kleine Auszeit – mach es dir gemütlich!" },
+        { title: "Tag 4", message: "Ho ho ho, meine Liebe, heute gibt es ein weiteres Rätsel. Diesmal in Audioform. Viel Spaß damit :-*", audio: "images/ich_liebe_dich_morse.mp3"  },
         { title: "Tag 5", message: "Ein Stern für deinen Tag – strahle heute besonders hell!" },
         { title: "Tag 6", message: "Der Nikolaus hat dir eine kleine Freude hinterlassen." },
         { title: "Tag 7", message: "Lass dich inspirieren – ein Zitat: 'Der Weg ist das Ziel'." },
@@ -121,22 +121,81 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const showPopup = (title, content, media) => {
+const showPopup = (title, content, media) => {
         const popup = document.getElementById("popup");
         const popupInnerContent = document.getElementById("popup-inner-content");
-        
-            // HTML für den Link hinzufügen, wenn er existiert
-        const linkHTML = media.link 
-        ? `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Basteln Basteln Basteln</a>` 
-        : '';
 
-        
+        // Erstelle HTML für Medieninhalte
+        let mediaHTML = '';
+        if (media.image) {
+            mediaHTML += `<img src="${media.image}" alt="Popup Image" style="max-width: 100%; max-height: 300px; display: block; margin: 10px auto;">`;
+        }
+        if (media.audio) {
+            mediaHTML += `
+                <audio controls style="display: block; margin: 10px auto;">
+                    <source src="${media.audio}" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>`;
+        }
+        if (media.video) {
+            mediaHTML += `
+                <video controls style="max-width: 100%; max-height: 300px; display: block; margin: 10px auto;">
+                 <source src="${media.video}" type="video/mp4">
+                 Dein Browser unterstützt das Video-Element nicht.
+                </video>`;
+        }
+        if (media.link) {
+            mediaHTML += `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Hier klicken für die Überraschung</a>`;
+        }
+
+        // Setze den Pop-up-Inhalt
         popupInnerContent.innerHTML = `
-        <h2>${title}</h2>
-        <p>${content}</p>
-        ${media.image ? `<img src="${media.image}" style="max-width: 100%; max-height: 300px; display: block; margin: 10px auto;" />` : ''}
-        ${linkHTML}
-    `;
+            <h2>${title}</h2>
+            <p>${content}</p>
+            ${mediaHTML}
+        `;
+    
+        applyRandomStyleToElement(popupInnerContent.querySelector('h2'), title);
+
+        popup.style.display = "flex";
+    };
+
+    const closePopup = () => {
+        document.getElementById("popup").style.display = "none";
+    };const showPopup = (title, content, media) => {
+        const popup = document.getElementById("popup");
+        const popupInnerContent = document.getElementById("popup-inner-content");
+
+        // Erstelle HTML für Medieninhalte
+        let mediaHTML = '';
+        if (media.image) {
+            mediaHTML += `<img src="${media.image}" alt="Popup Image" style="max-width: 100%; max-height: 300px; display: block; margin: 10px auto;">`;
+        }
+        if (media.audio) {
+            mediaHTML += `
+                <audio controls style="display: block; margin: 10px auto;">
+                    <source src="${media.audio}" type="audio/mpeg">
+                    Dein Browser unterstützt das Audio-Element nicht.
+                </audio>`;
+        }
+        if (media.video) {
+            mediaHTML += `
+                <video controls style="max-width: 100%; max-height: 300px; display: block; margin: 10px auto;">
+                 <source src="${media.video}" type="video/mp4">
+                 Dein Browser unterstützt das Video-Element nicht.
+                </video>`;
+        }
+        if (media.link) {
+            mediaHTML += `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Hier klicken für die Überraschung</a>`;
+        }
+
+        // Setze den Pop-up-Inhalt
+        popupInnerContent.innerHTML = `
+            <h2>${title}</h2>
+            <p>${content}</p>
+            ${mediaHTML}
+        `;
+    
         applyRandomStyleToElement(popupInnerContent.querySelector('h2'), title);
 
         popup.style.display = "flex";

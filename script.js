@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 3", message: "Ho ho ho, meine Liebe, heute gibt es eine kleine Bastelaufgabe. Wir wollen ja eine weihnachtliche Deko zu Hause haben.", link: "https://youtu.be/jc22gvF4spk?si=u_zDxRmENhKfitVp"},
         { title: "Tag 4", message: "Ho ho ho, meine Liebe, heute gibt es ein weiteres Rätsel. Diesmal in Audioform. Viel Spaß damit :-*", audio: "images/ich_liebe_dich_morse.mp3"  },
         { title: "Tag 5", message: "Ho ho ho, meine Liebe, viel Spaß in Brüsel und Amsti. Zur Stärkung für deine lange Anreise: Ein paar Vitamine. :-*" },
-        { title: "Tag 6", message: "Der Nikolaus hat dir eine kleine Freude hinterlassen." },
+        { title: "Tag 6", message: "Ho ho ho, meine Liebe, habe ne gute Zeit mit deinen Freundinnen :-) </br> Deine Drinks gehen heute auf mich, lass es dir gut gehen :-*" },
         { title: "Tag 7", message: "Lass dich inspirieren – ein Zitat: 'Der Weg ist das Ziel'." },
         { title: "Tag 8", message: "Ein warmes Getränk macht den Winter gleich viel schöner." },
         { title: "Tag 9", message: "Heute wartet ein kleines Rätsel auf dich: Was hat Flügel, aber fliegt nicht? (Antwort: Ein Türchen!)" },

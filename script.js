@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 5", message: "Ho ho ho, meine Liebe, viel Spaß in Brüsel und Amsti. Zur Stärkung für deine lange Anreise: Ein paar Vitamine. :-*" },
         { title: "Tag 6", message: "Ho ho ho, meine Liebe, habe ne gute Zeit mit deinen Freundinnen :-) </br> Deine Drinks gehen heute auf mich, lass es dir gut gehen :-*" },
         { title: "Tag 7", message: "Ho ho ho, meine Liebe,so ein Party Abend ganz schon mal anstrengend sein. Deswegen solltest du ordentlich Frühstücken. Ein Kaffee und ein Croissant gehen auf mich :-* PS:'Der Weg ist das Ziel' lol." },
-        { title: "Tag 8", message: "Ho ho ho, meine Liebe, ich hoffe du hast heute einen schönen Tag in Amsterdam. Dicker Knutscher von mir.& sorry, hoffentlich funktioniert es jetzt. :-*" },
+        { title: "Tag 8", message: "Ho ho ho, meine Liebe, ich hoffe du hast heute einen schönen Tag in Amsterdam. Dicker Knutscher von mir.& sorry, hoffentlich funktioniert es jetzt. :-*", image: "images/knutsch.jpg" },
         { title: "Tag 9", message: "Heute wartet ein kleines Rätsel auf dich: Was hat Flügel, aber fliegt nicht? (Antwort: Ein Türchen!)" },
         { title: "Tag 10", message: "Ein Lächeln ist das schönste Geschenk – schenk es heute jemandem." },
         { title: "Tag 11", message: "Eine kleine Überraschung erwartet dich bald!" },

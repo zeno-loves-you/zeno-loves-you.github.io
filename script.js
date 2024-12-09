@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 7", message: "Ho ho ho, meine Liebe,so ein Party Abend ganz schon mal anstrengend sein. Deswegen solltest du ordentlich Frühstücken. Ein Kaffee und ein Croissant gehen auf mich :-* PS:'Der Weg ist das Ziel' lol." },
         { title: "Tag 8", message: "Ho ho ho, meine Liebe, ich hoffe du hast heute einen schönen Tag in Amsterdam. Dicker Knutscher von mir.& sorry, hoffentlich funktioniert es jetzt. :-*", image: "images/knutsch.jpg" },
         { title: "Tag 9", message: "Ho ho ho, meine Liebe, ich freue mich schon dich heute wieder zu sehen! Hast du ne Idee, woher das Bild kommt? Heute backen wir!", image: "images/zimtL.jpg", image: "images/zimtR.jpg" },
-        { title: "Tag 10", message: "Ein Lächeln ist das schönste Geschenk – schenk es heute jemandem." },
+        { title: "Tag 10", message: "Ho ho ho, meine Liebe, heute keine Geschenk, sondern Frühsport. Ab auf die Yoga Matte und wir strechten uns zusammen." },
         { title: "Tag 11", message: "Eine kleine Überraschung erwartet dich bald!" },
         { title: "Tag 12", message: "Halbzeit bis Weihnachten – freu dich auf die zweite Hälfte!" },
         { title: "Tag 13", message: "Ein warmer Schal und gute Gedanken für den kalten Winter." },

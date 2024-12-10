@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 8", message: "Ho ho ho, meine Liebe, ich hoffe du hast heute einen schönen Tag in Amsterdam. Dicker Knutscher von mir.& sorry, hoffentlich funktioniert es jetzt. :-*", image: "images/knutsch.jpg" },
         { title: "Tag 9", message: "Ho ho ho, meine Liebe, ich freue mich schon dich heute wieder zu sehen! Hast du ne Idee, woher das Bild kommt? Heute backen wir!", image: "images/zimtL.jpg", image: "images/zimtR.jpg" },
         { title: "Tag 10", message: "Ho ho ho, meine Liebe, heute keine Geschenk, sondern Frühsport. Ab auf die Yoga Matte und wir strechten uns zusammen." },
-        { title: "Tag 11", message: "Eine kleine Überraschung erwartet dich bald!" },
+        { title: "Tag 11", message: "Weihnachtsquiz", action: startQuiz },
         { title: "Tag 12", message: "Halbzeit bis Weihnachten – freu dich auf die zweite Hälfte!" },
         { title: "Tag 13", message: "Ein warmer Schal und gute Gedanken für den kalten Winter." },
         { title: "Tag 14", message: "Heute ist ein perfekter Tag, um an jemanden zu denken, den du magst." },
@@ -108,14 +108,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const openDoor = (day) => {
         const today = new Date().getDate();
         if (today >= day) {
-            const content = doorContents[day - 1]; // Hole Inhalt basierend auf Türnummer
+            const content = doorContents[day - 1];
             const media = {
                 image: content.image || null,
                 video: content.video || null,
                 audio: content.audio || null,
-                link: content.link || null // Fügt den Link hinzu, falls vorhanden
+                link: content.link || null
             };
-            showPopup(content.title, content.message, media);
+            if (content.action) {
+                content.action(); // Führt die Aktion aus, wenn definiert
+            } else {
+                showPopup(content.title, content.message, media);
+            }
         } else {
             alert(`Türchen ${day} kann erst am ${day}. Dezember geöffnet werden.`);
         }
@@ -227,3 +231,153 @@ const backgroundImage = new Image();
     backgroundImage.onerror = () => console.error('Hintergrundbild konnte nicht geladen werden!');
 };
 
+const schnickSchnackSchnuck = () => {
+    const choices = ['Stein', 'Papier', 'Schere'];
+    const emojiMap = {
+        Stein: '🪨',
+        Papier: '📜',
+        Schere: '✂️'
+    };
+
+    let userScore = 0;
+    let computerScore = 0;
+
+    const popupContent = document.getElementById("popup-inner-content");
+    popupContent.innerHTML = `
+        <h2>Schnick-Schnack-Schnuck</h2>
+        <p>Spiel gegen den Zeno Computer! Wer zuerst 3 Punkte hat, gewinnt das Duell.</p>
+        <div id="game-choices">
+            <button class="game-choice" data-choice="Stein">${emojiMap.Stein}</button>
+            <button class="game-choice" data-choice="Papier">${emojiMap.Papier}</button>
+            <button class="game-choice" data-choice="Schere">${emojiMap.Schere}</button>
+        </div>
+        <p id="game-result"></p>
+        <p>Punkte:</p>
+        <p>Du: <span id="user-score">0</span> | Computer: <span id="computer-score">0</span></p>
+    `;
+
+    const updateScores = (userChoice, computerChoice, resultText) => {
+        document.getElementById("game-result").innerText = `
+            Du wählst: ${emojiMap[userChoice]} | Computer wählt: ${emojiMap[computerChoice]} \n ${resultText}
+        `;
+        document.getElementById("user-score").innerText = userScore;
+        document.getElementById("computer-score").innerText = computerScore;
+
+        if (userScore === 3 || computerScore === 3) {
+            const winner = userScore === 3 ? "Herzlichen Glückwunsch! Du gewinnst und ich hole das Frühstück" : "Der Computer gewinnt. Viel Glück beim nächsten Mal!";
+            document.getElementById("game-result").innerText = winner;
+            document.getElementById("game-choices").style.display = "none"; // Deaktiviert Buttons
+        }
+    };
+
+    document.querySelectorAll(".game-choice").forEach(button => {
+        button.addEventListener("click", () => {
+            if (userScore < 3 && computerScore < 3) {
+                const userChoice = button.dataset.choice;
+                const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+                let resultText = '';
+
+                if (userChoice === computerChoice) {
+                    resultText = "Unentschieden!";
+                } else if (
+                    (userChoice === 'Stein' && computerChoice === 'Schere') ||
+                    (userChoice === 'Papier' && computerChoice === 'Stein') ||
+                    (userChoice === 'Schere' && computerChoice === 'Papier')
+                ) {
+                    resultText = "Du gewinnst diese Runde!";
+                    userScore++;
+                } else {
+                    resultText = "Ich gewinne diese Runde!";
+                    computerScore++;
+                }
+
+                updateScores(userChoice, computerChoice, resultText);
+            }
+        });
+    });
+
+    document.getElementById("popup").style.display = "flex";
+};
+
+
+const startQuiz = () => {
+    let currentQuestionIndex = 0;
+    let userScore = 0;
+
+    const popupContent = document.getElementById("popup-inner-content");
+
+    const showQuestion = () => {
+        const question = quizQuestions[currentQuestionIndex];
+
+        popupContent.innerHTML = `
+            <h2>Tatsächlich... Liebe - Antonia's Quiz</h2>
+            <p>${question.question}</p>
+            <div id="quiz-choices">
+                ${question.options.map((option, index) => `
+                    <button class="quiz-choice" data-answer="${String.fromCharCode(65 + index)}">${option}</button>
+                `).join('')}
+            </div>
+            <p id="quiz-result"></p>
+            <p>Punktestand:</p>
+            <p>Du: <span id="user-score">0</span></p>
+        `;
+
+        document.querySelectorAll(".quiz-choice").forEach(button => {
+            button.addEventListener("click", (event) => {
+                const selectedAnswer = event.target.getAttribute("data-answer");
+                handleAnswer(selectedAnswer);
+            });
+        });
+    };
+
+    const handleAnswer = (selectedAnswer) => {
+        const question = quizQuestions[currentQuestionIndex];
+        const resultElement = document.getElementById("quiz-result");
+
+        if (selectedAnswer === question.answer) {
+            userScore++;
+            resultElement.innerText = "Richtig! 🎉";
+        } else {
+            resultElement.innerText = "Falsch! 😞";
+        }
+
+        document.getElementById("user-score").innerText = userScore;
+
+        // Nächste Frage oder Quiz beenden
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizQuestions.length) {
+            setTimeout(showQuestion, 1000); // Zeigt nächste Frage nach 1 Sekunde
+        } else {
+            setTimeout(endQuiz, 1000); // Beendet das Quiz nach 1 Sekunde
+        }
+    };
+
+    const endQuiz = () => {
+        popupContent.innerHTML = `
+            <h2>🎉 Quiz beendet!</h2>
+            <p>Deine Punkte: ${userScore} von ${quizQuestions.length}</p>
+        `;
+        document.getElementById("popup").style.display = "flex";
+    };
+
+    showQuestion();
+    document.getElementById("popup").style.display = "flex";
+};
+
+const quizQuestions = [
+    {
+        question: "Wer ist Premierminister im Film?",
+        options: ["A) Hugh Grant", "B) Colin Firth", "C) Alan Rickman", "D) Liam Neeson"],
+        answer: "A"
+    },
+    {
+        question: "Welches Lied singt Sam, um das Herz seiner Mitschülerin Joanna zu gewinnen?",
+        options: ["A) Last Christmas", "B) All I Want for Christmas Is You", "C) Jingle Bell Rock", "D) White Christmas"],
+        answer: "B"
+    },
+    {
+        question: "Mit welchem Satz gesteht Mark Juliet seine Liebe?",
+        options: ["A) 'To me, you are perfect.'", "B) 'You light up my world like nobody else.'", "C) 'You're the one that I want.'", "D) 'You're my Christmas miracle.'"],
+        answer: "A"
+    }
+];

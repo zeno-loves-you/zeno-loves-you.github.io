@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 9", message: "Ho ho ho, meine Liebe, ich freue mich schon dich heute wieder zu sehen! Hast du ne Idee, woher das Bild kommt? Heute backen wir!", image: "images/zimtL.jpg", image: "images/zimtR.jpg" },
         { title: "Tag 10", message: "Ho ho ho, meine Liebe, heute keine Geschenk, sondern Frühsport. Ab auf die Yoga Matte und wir strechten uns zusammen." },
         { title: "Tag 11", message: "Weihnachtsquiz", action: startQuiz },
-        { title: "Tag 12", message: "Halbzeit bis Weihnachten – freu dich auf die zweite Hälfte!" },
+        { title: "Tag 12", message: "Ho ho ho, meine Liebe, wir haben viel drüber gesprochen, es aber nie gemacht. Heute geht es ins Kino. Juhuuuuuu", link: "https://www.yorck.de/en/films/the-outrun?sort=Popularity&date=2024-12-12&tab=daily&sessionsExpanded=false&film=" },
         { title: "Tag 13", message: "Ein warmer Schal und gute Gedanken für den kalten Winter." },
         { title: "Tag 14", message: "Heute ist ein perfekter Tag, um an jemanden zu denken, den du magst." },
         { title: "Tag 15", message: "Schmücke dein Zuhause mit etwas Festlichem – es ist fast so weit!" },
@@ -149,7 +149,7 @@ const showPopup = (title, content, media) => {
                 </video>`;
         }
         if (media.link) {
-            mediaHTML += `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Hier klicken für die Überraschung</a>`;
+            mediaHTML += `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Hier klicken für den Film</a>`;
         }
 
         // Setze den Pop-up-Inhalt

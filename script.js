@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 10", message: "Ho ho ho, meine Liebe, heute keine Geschenk, sondern Frühsport. Ab auf die Yoga Matte und wir strechten uns zusammen." },
         { title: "Tag 11", message: "Weihnachtsquiz", action: startQuiz },
         { title: "Tag 12", message: "Ho ho ho, meine Liebe, wir haben viel drüber gesprochen, es aber nie gemacht. Heute geht es ins Kino. Juhuuuuuu", link: "https://www.yorck.de/en/films/the-outrun?sort=Popularity&date=2024-12-12&tab=daily&sessionsExpanded=false&film=" },
-        { title: "Tag 13", message: "Ein warmer Schal und gute Gedanken für den kalten Winter." },
+        { title: "Tag 13", message: "Memory", action: startMemory },
         { title: "Tag 14", message: "Heute ist ein perfekter Tag, um an jemanden zu denken, den du magst." },
         { title: "Tag 15", message: "Schmücke dein Zuhause mit etwas Festlichem – es ist fast so weit!" },
         { title: "Tag 16", message: "Ein Winterspaziergang macht den Kopf frei und das Herz warm." },
@@ -381,3 +381,65 @@ const quizQuestions = [
         answer: "A"
     }
 ];
+
+const startMemory = () => {
+    const symbols = ["🎄", "🎅", "❄️", "🎁", "🦌", "🌟", "🍪", "☕"];
+    const shuffledSymbols = [...symbols, ...symbols].sort(() => Math.random() - 0.5);
+    const popupContent = document.getElementById("popup-inner-content");
+
+    popupContent.innerHTML = `
+        <h2>🎅 Memory - Schwierigkeit: Hard</h2>
+        <div id="memory-grid"></div>
+        <p id="memory-result"></p>
+    `;
+
+    const memoryGrid = document.getElementById("memory-grid");
+    memoryGrid.style.display = "grid";
+    memoryGrid.style.gridTemplateColumns = "repeat(4, 1fr)";
+    memoryGrid.style.gap = "10px";
+
+    shuffledSymbols.forEach((symbol, index) => {
+        const card = document.createElement("button");
+        card.className = "memory-card";
+        card.dataset.symbol = symbol;
+        card.innerText = "?";
+        memoryGrid.appendChild(card);
+    });
+
+    let firstCard = null;
+    let secondCard = null;
+    let pairsFound = 0;
+
+    const checkMatch = () => {
+        if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
+            pairsFound++;
+            firstCard = null;
+            secondCard = null;
+            if (pairsFound === symbols.length) {
+                document.getElementById("memory-result").innerText = "🎉 Super! Du bist die tollste Freundin";
+            }
+        } else {
+            setTimeout(() => {
+                firstCard.innerText = "?";
+                secondCard.innerText = "?";
+                firstCard = null;
+                secondCard = null;
+            }, 1000);
+        }
+    };
+
+    document.querySelectorAll(".memory-card").forEach((card) => {
+        card.addEventListener("click", () => {
+            if (!firstCard) {
+                firstCard = card;
+                card.innerText = card.dataset.symbol;
+            } else if (!secondCard && card !== firstCard) {
+                secondCard = card;
+                card.innerText = card.dataset.symbol;
+                checkMatch();
+            }
+        });
+    });
+
+    document.getElementById("popup").style.display = "flex";
+};

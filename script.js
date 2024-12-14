@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 12", message: "Ho ho ho, meine Liebe, wir haben viel drüber gesprochen, es aber nie gemacht. Heute geht es ins Kino. Juhuuuuuu", link: "https://www.yorck.de/en/films/the-outrun?sort=Popularity&date=2024-12-12&tab=daily&sessionsExpanded=false&film=" },
         { title: "Tag 13", message: "Memory", action: startMemory },
         { title: "Tag 14", message: "Ho ho ho, meine Liebe, heute ist Samstag. Samstag bedeutet Party. Dein erstes Getränk heute Abend geht auf mich. :-*" },
-        { title: "Tag 15", message: "Schmücke dein Zuhause mit etwas Festlichem – es ist fast so weit!" },
+        { title: "Tag 15", message: "SchnickSchnackSchnuck", action: schnickSchnackSchnuck },
         { title: "Tag 16", message: "Ein Winterspaziergang macht den Kopf frei und das Herz warm." },
         { title: "Tag 17", message: "Zeit für Kekse! Backe heute ein paar Plätzchen." },
         { title: "Tag 18", message: "Ein kleines Gedicht für dich: 'Im Winter ist es kalt und klar, doch Weihnachten ist wunderbar.'" },

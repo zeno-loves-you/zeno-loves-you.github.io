@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 13", message: "Memory", action: startMemory },
         { title: "Tag 14", message: "Ho ho ho, meine Liebe, heute ist Samstag. Samstag bedeutet Party. Dein erstes Getränk heute Abend geht auf mich. :-*" },
         { title: "Tag 15", message: "SchnickSchnackSchnuck", action: schnickSchnackSchnuck },
-        { title: "Tag 16", message: "Ein Winterspaziergang macht den Kopf frei und das Herz warm." },
+        { title: "Tag 16", message: "Heute gibts ein kleines Puzzle." action:  },
         { title: "Tag 17", message: "Zeit für Kekse! Backe heute ein paar Plätzchen." },
         { title: "Tag 18", message: "Ein kleines Gedicht für dich: 'Im Winter ist es kalt und klar, doch Weihnachten ist wunderbar.'" },
         { title: "Tag 19", message: "Zünde heute eine Kerze an und genieße die Ruhe." },
@@ -441,5 +441,147 @@ const startMemory = () => {
         });
     });
 
+    document.getElementById("popup").style.display = "flex";
+};
+
+const startTreeGame = () => {
+    // Entferne vorhandenen Popup-Inhalt
+    const popupContent = document.getElementById("popup-inner-content");
+    popupContent.innerHTML = "";
+
+    // Weihnachtsbaum-Container erstellen
+    const treeContainer = document.createElement("div");
+    treeContainer.id = "tree-container";
+    treeContainer.style.position = "relative";
+    treeContainer.style.width = "300px";
+    treeContainer.style.height = "400px";
+    treeContainer.style.margin = "50px auto";
+    popupContent.appendChild(treeContainer);
+
+    // Formen und Drop-Zonen für den Weihnachtsbaum definieren
+    const TREE_SHAPE = [
+        { id: "triangle1", type: "triangle", color: "#2ecc71", width: 50, height: 50 },
+        { id: "triangle2", type: "triangle", color: "#27ae60", width: 100, height: 70 },
+        { id: "triangle3", type: "triangle", color: "#1e8449", width: 150, height: 100 },
+        { id: "square", type: "square", color: "#8b4513", width: 50, height: 50 } // Stamm des Baums
+    ];
+
+    const DROP_ZONES = [
+        { id: "zone-triangle1", top: "20px", left: "125px", width: 50, height: 50 },
+        { id: "zone-triangle2", top: "90px", left: "100px", width: 100, height: 70 },
+        { id: "zone-triangle3", top: "180px", left: "75px", width: 150, height: 100 },
+        { id: "zone-square", top: "300px", left: "125px", width: 50, height: 50 }
+    ];
+
+    // Drop-Zonen erstellen
+    DROP_ZONES.forEach(zone => {
+        const dropZone = document.createElement("div");
+        dropZone.id = zone.id;
+        dropZone.className = "drop-zone";
+        dropZone.style.position = "absolute";
+        dropZone.style.top = zone.top;
+        dropZone.style.left = zone.left;
+        dropZone.style.width = `${zone.width}px`;
+        dropZone.style.height = `${zone.height}px`;
+        dropZone.style.border = "2px dashed #ccc";
+        dropZone.style.pointerEvents = "none";
+        treeContainer.appendChild(dropZone);
+    });
+
+    // Teil-Container erstellen
+    const partContainer = document.createElement("div");
+    partContainer.id = "part-container";
+    partContainer.style.display = "flex";
+    partContainer.style.justifyContent = "center";
+    partContainer.style.marginTop = "20px";
+    popupContent.appendChild(partContainer);
+
+    // Formen erstellen
+    TREE_SHAPE.forEach(part => {
+        const partElement = document.createElement("div");
+        partElement.id = part.id;
+        partElement.className = "part";
+        partElement.style.margin = "10px";
+        partElement.style.cursor = "grab";
+        partElement.draggable = true;
+
+        if (part.type === "triangle") {
+            partElement.style.width = "0";
+            partElement.style.height = "0";
+            partElement.style.borderLeft = `${part.width / 2}px solid transparent`;
+            partElement.style.borderRight = `${part.width / 2}px solid transparent`;
+            partElement.style.borderBottom = `${part.height}px solid ${part.color}`;
+        } else if (part.type === "square") {
+            partElement.style.width = `${part.width}px`;
+            partElement.style.height = `${part.height}px`;
+            partElement.style.backgroundColor = part.color;
+        }
+
+        partElement.addEventListener("dragstart", (event) => {
+            event.dataTransfer.setData("text/plain", part.id);
+        });
+
+        partContainer.appendChild(partElement);
+    });
+
+    // Drag-and-Drop-Funktionen für den Baum
+    treeContainer.addEventListener("dragover", (event) => {
+        event.preventDefault();
+    });
+
+    treeContainer.addEventListener("drop", (event) => {
+        event.preventDefault();
+        const partId = event.dataTransfer.getData("text");
+        const partElement = document.getElementById(partId);
+
+        const dropZone = Array.from(treeContainer.children).find(zone =>
+            zone.id === `zone-${partId}`
+        );
+
+        // Verhindert falsche Platzierung
+        const validPlacement = dropZone && dropZone.id === `zone-${partId}`;
+        if (validPlacement && !dropZone.hasChildNodes()) {
+            dropZone.appendChild(partElement);
+            partElement.style.position = "absolute";
+            partElement.style.top = "0";
+            partElement.style.left = "0";
+            partElement.style.cursor = "default";
+            partElement.draggable = false;
+
+            // Feedback bei Erfolg
+            dropZone.classList.add("correct");
+            partElement.style.animation = "pop 0.3s ease-in-out";
+
+            // Überprüfung, ob alle Teile platziert wurden
+            if (Array.from(treeContainer.children).every(zone => zone.hasChildNodes())) {
+                setTimeout(() => {
+                    alert("🎉 Easy Peasy für dich:-* Sorry für das doofe Türchen! 🎄");
+                }, 100);
+            }
+        } else {
+            // Feedback bei Fehler
+            if (dropZone) {
+                dropZone.classList.add("incorrect");
+                setTimeout(() => dropZone.classList.remove("incorrect"), 500);
+            }
+            alert("❌ Falscher Platz! Versuche es erneut.");
+        }
+    });
+
+    // CSS-Animationen hinzufügen
+    const style = document.createElement("style");
+    style.textContent = `
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Popup sichtbar machen
     document.getElementById("popup").style.display = "flex";
 };

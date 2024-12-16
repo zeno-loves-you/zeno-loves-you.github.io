@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 13", message: "Memory", action: startMemory },
         { title: "Tag 14", message: "Ho ho ho, meine Liebe, heute ist Samstag. Samstag bedeutet Party. Dein erstes Getränk heute Abend geht auf mich. :-*" },
         { title: "Tag 15", message: "SchnickSchnackSchnuck", action: schnickSchnackSchnuck },
-        { title: "Tag 16", message: "Heute gibts ein kleines Puzzle." action: startTreeGame },
+        { title: "Tag 16", message: "Heute gibts ein kleines Puzzle.", action: startTreeGame },
         { title: "Tag 17", message: "Zeit für Kekse! Backe heute ein paar Plätzchen." },
         { title: "Tag 18", message: "Ein kleines Gedicht für dich: 'Im Winter ist es kalt und klar, doch Weihnachten ist wunderbar.'" },
         { title: "Tag 19", message: "Zünde heute eine Kerze an und genieße die Ruhe." },

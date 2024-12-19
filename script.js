@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 16", message: "Heute gibts ein kleines Puzzle.", action: startTreeGame },
         { title: "Tag 17", message: "Ho ho ho, meine Liebe, der erste Glühwein heute Abend geht auf mich :-* Bis später :-)" },
         { title: "Tag 18", message: "Ho ho ho, meine Liebe, wir holen uns jetzt einen leckeren Kaffee. Aufstehen und ab geht's :-*" },
-        { title: "Tag 19", message: "Zünde heute eine Kerze an und genieße die Ruhe." },
+        { title: "Tag 19", message: "Ho ho ho, meine Liebe, hier ein Rätsel... Hohl in der Mitte, doch außen ganz fein, </br> in Silber gewickelt, ein echter Festtagsschrein. </br> Mit Glöckchen und Lächeln, ganz wunderbar, </br> ich bin das Highlight vom Weihnachtsjahr. </br> Was bin ich?" },
         { title: "Tag 20", message: "Nur noch vier Tage bis Weihnachten! Die Vorfreude steigt." },
         { title: "Tag 21", message: "Ein Tannenzweig und der Duft von Weihnachten füllen den Raum." },
         { title: "Tag 22", message: "Ein Weihnachtslied hebt die Stimmung – summ oder sing mit!" },

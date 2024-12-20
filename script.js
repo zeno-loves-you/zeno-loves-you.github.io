@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 18", message: "Ho ho ho, meine Liebe, wir holen uns jetzt einen leckeren Kaffee. Aufstehen und ab geht's :-*" },
         { title: "Tag 19", message: "Ho ho ho, meine Liebe, hier ein Rätsel... Hohl in der Mitte, doch außen ganz fein, </br> in Silber gewickelt, ein echter Festtagsschrein. </br> Mit Glöckchen und Lächeln, ganz wunderbar, </br> ich bin das Highlight vom Weihnachtsjahr. </br> Was bin ich?" },
         { title: "Tag 20", message: "Ho ho ho, meine Liebe, glaubst du, dass du mit Lindor richtig liegst? Vllt trifft noch was anderes zu. :-*" },
-        { title: "Tag 21", message: "Ein Tannenzweig und der Duft von Weihnachten füllen den Raum." },
+        { title: "Tag 21", message: "Ho ho ho, meine Liebe, heute gibt es nichts, aber was hat sich an deinem Kalender geändert und wo hast du das schon mal gesehen?" },
         { title: "Tag 22", message: "Ein Weihnachtslied hebt die Stimmung – summ oder sing mit!" },
         { title: "Tag 23", message: "Heute ist ein schöner Tag für einen heißen Punsch." },
         { title: "Tag 24", message: "Frohe Weihnachten! Genieße den Tag mit deinen Liebsten." }

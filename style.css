@@ -167,7 +167,7 @@ h1 {
 }
 
 .popup-inner-content img {
-    max-width: 100%;
+    max-width: 170%;
     max-height: 300px; /* oder eine andere feste Höhe */
     width: auto;
     height: auto;

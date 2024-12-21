@@ -169,7 +169,7 @@ const showPopup = (title, content, media) => {
     };
 
     // Steuerung: Zwerge aktivieren oder deaktivieren
-    const showZwerge = false; // Ändere auf `true`, um die Zwerge zu aktivieren
+    const showZwerge = true; // Ändere auf `true`, um die Zwerge zu aktivieren
 
     // Funktion zur Zwerg-Erstellung
     const createZwerg = () => {

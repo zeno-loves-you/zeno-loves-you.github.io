@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 19", message: "Ho ho ho, meine Liebe, hier ein Rätsel... Hohl in der Mitte, doch außen ganz fein, </br> in Silber gewickelt, ein echter Festtagsschrein. </br> Mit Glöckchen und Lächeln, ganz wunderbar, </br> ich bin das Highlight vom Weihnachtsjahr. </br> Was bin ich?" },
         { title: "Tag 20", message: "Ho ho ho, meine Liebe, glaubst du, dass du mit Lindor richtig liegst? Vllt trifft noch was anderes zu. :-*" },
         { title: "Tag 21", message: "Ho ho ho, meine Liebe, heute gibt es nichts, aber was hat sich an deinem Kalender geändert und wo hast du das schon mal gesehen?" },
-        { title: "Tag 22", message: "Ein Weihnachtslied hebt die Stimmung – summ oder sing mit!" },
+        { title: "Tag 22", message: "Ho ho ho, meine Liebe, ein weiteres Rätsel", action: startCrossword },
         { title: "Tag 23", message: "Heute ist ein schöner Tag für einen heißen Punsch." },
         { title: "Tag 24", message: "Frohe Weihnachten! Genieße den Tag mit deinen Liebsten." }
     ];
@@ -585,3 +585,209 @@ const startTreeGame = () => {
     // Popup sichtbar machen
     document.getElementById("popup").style.display = "flex";
 };
+
+const startCrossword = () => {
+    const popupContent = document.getElementById("popup-inner-content");
+    popupContent.innerHTML = "";
+
+    const crosswordContainer = document.createElement("div");
+    crosswordContainer.id = "crossword-container";
+
+    const crosswordGrid = document.createElement("div");
+    crosswordGrid.id = "crossword-grid";
+
+    const crossword = [
+        // WHIPPEDBUTTER (horizontal, teilt das W mit WEIHNACHTEN)
+        { x: 0, y: 0, letter: "W", question: "Was ist süß, salzig und fluffig?" },
+        { x: 1, y: 0, letter: "H" },
+        { x: 2, y: 0, letter: "I" },
+        { x: 3, y: 0, letter: "P" },
+        { x: 4, y: 0, letter: "P" },
+        { x: 5, y: 0, letter: "E" },
+        { x: 6, y: 0, letter: "D" },
+        { x: 7, y: 0, letter: "B" },
+        { x: 8, y: 0, letter: "U" },
+        { x: 9, y: 0, letter: "T", highlight: true },
+        { x: 10, y: 0, letter: "T" },
+        { x: 11, y: 0, letter: "E" },
+        { x: 12, y: 0, letter: "R" },
+    
+        // WEIHNACHTEN (vertikal, teilt das W mit WHIPPEDBUTTER)
+        { x: 0, y: 0, letter: "W" },
+        { x: 0, y: 1, letter: "E", question: "Am 24.12 ist?" },
+        { x: 0, y: 2, letter: "I" },
+        { x: 0, y: 3, letter: "H" },
+        { x: 0, y: 4, letter: "N", highlight: true },
+        { x: 0, y: 5, letter: "A" },
+        { x: 0, y: 6, letter: "C" },
+        { x: 0, y: 7, letter: "H" },
+        { x: 0, y: 8, letter: "T" },
+        { x: 0, y: 9, letter: "E" },
+        { x: 0, y: 10, letter: "N" },
+    
+        // ROTARY (horizontal, keine Verbindung zu ABSEITS)
+        { x: 12, y: 0, letter: "R", question: "In welchem Club ist deine Mutter?" },
+        { x: 12, y: 1, letter: "O", highlight: true },
+        { x: 12, y: 2, letter: "T" },
+        { x: 12, y: 3, letter: "A" },
+        { x: 12, y: 4, letter: "R" },
+        { x: 12, y: 5, letter: "Y" },
+
+        // ABSEITS (vertikal, teilt das I mit ACHTZIGEURO)
+        { x: 4, y: 8, letter: "P", question: "Ich bin dein..." },
+        { x: 5, y: 8, letter: "U" },
+        { x: 6, y: 8, letter: "P" },
+        { x: 7, y: 8, letter: "P" },
+        { x: 8, y: 8, letter: "I", highlight: true },
+    
+        // ITALIEN (vertikal, keine Verbindung zum N von WEIHNACHTEN)
+        { x: 8, y: 4, letter: "I", question: "Wo waren wir im Urlaub?" },
+        { x: 8, y: 5, letter: "T" },
+        { x: 8, y: 6, letter: "A" },
+        { x: 8, y: 7, letter: "L" },
+        { x: 8, y: 8, letter: "I" },
+        { x: 8, y: 9, letter: "E" },
+        { x: 8, y: 10, letter: "N", highlight: true },
+    
+        // ACHTZIGEURO (horizontal)
+        { x: 3, y: 4, letter: "A", question: "Wie viel kostet ein Gramm Gold?", highlight: true },
+        { x: 4, y: 4, letter: "C" },
+        { x: 5, y: 4, letter: "H" },
+        { x: 6, y: 4, letter: "T" },
+        { x: 7, y: 4, letter: "Z" },
+        { x: 8, y: 4, letter: "I" },
+        { x: 9, y: 4, letter: "G" },
+        { x: 10, y: 4, letter: "E" },
+        { x: 11, y: 4, letter: "U" },
+        { x: 12, y: 4, letter: "R" },
+        { x: 13, y: 4, letter: "O" },
+    
+        // PASTA (horizontal, teilt das P mit WHIPPEDBUTTER und das A mit ACHTZIGEURO)
+        { x: 3, y: 3, letter: "P", question: "Käse, Speck, Eier. Was fehlt?" },
+        { x: 3, y: 4, letter: "A" },
+        { x: 3, y: 5, letter: "S" },
+        { x: 3, y: 6, letter: "T" },
+        { x: 3, y: 7, letter: "A", highlight: true },
+
+        
+    ];
+    
+
+    // Rastergröße dynamisch berechnen
+    const gridWidth = Math.max(...crossword.map(l => l.x)) + 1;
+    const gridHeight = Math.max(...crossword.map(l => l.y)) + 1;
+
+    crosswordGrid.style.gridTemplateColumns = `repeat(${gridWidth}, 40px)`;
+    crosswordGrid.style.gridTemplateRows = `repeat(${gridHeight}, 40px)`;
+
+    // Raster erstellen
+    for (let y = 0; y < gridHeight; y++) {
+        for (let x = 0; x < gridWidth; x++) {
+            const cell = document.createElement("div");
+            cell.className = "crossword-cell";
+
+            const letter = crossword.find(l => l.x === x && l.y === y);
+            if (letter) {
+                cell.dataset.active = "true";
+
+                const input = document.createElement("input");
+                input.maxLength = 1;
+                input.dataset.correct = letter.letter.toUpperCase();
+                cell.appendChild(input);
+
+                if (letter.highlight) {
+                    cell.classList.add("highlight-cell");
+                }
+
+                if (letter.question) {
+                    input.addEventListener("focus", () => {
+                        const questionBox = document.getElementById("crossword-question");
+                        questionBox.innerText = letter.question;
+                    });
+                }
+            } else {
+                cell.style.backgroundColor = "#e0e0e0";
+                cell.style.pointerEvents = "none";
+            }
+
+            crosswordGrid.appendChild(cell);
+        }
+    }
+
+    crosswordContainer.appendChild(crosswordGrid);
+
+    // Frage-Anzeige
+    const questionBox = document.createElement("div");
+    questionBox.id = "crossword-question";
+    questionBox.innerText = "Wähle ein Feld, um die Frage zu sehen.";
+    crosswordContainer.appendChild(questionBox);
+    
+    // Eingabefeld für das fertige Wort
+    const finalWordContainer = document.createElement("div");
+    finalWordContainer.id = "final-word-container";
+    finalWordContainer.style.marginTop = "20px";
+    finalWordContainer.style.textAlign = "center";
+
+    const finalWordLabel = document.createElement("label");
+    finalWordLabel.innerText = "Trage das fertige Wort ein:";
+    finalWordLabel.style.marginRight = "10px";
+
+    const finalWordInput = document.createElement("input");
+    finalWordInput.type = "text";
+    finalWordInput.maxLength = 7; // Länge von "ANTONIA"
+    finalWordInput.id = "final-word-input";
+
+    const submitButton = document.createElement("button");
+    submitButton.innerText = "Überprüfen";
+    submitButton.id = "submit-final-word";
+    submitButton.style.marginLeft = "10px";
+
+    // Überprüfung der Eingabe
+    submitButton.addEventListener("click", () => {
+        const userWord = finalWordInput.value.toUpperCase();
+        const resultBox = document.getElementById("result");
+        if (userWord === "ANTONIA") {
+            resultBox.innerText = "🎉 Glückwunsch! Du hast das richtige Wort gefunden: ANTONIA!";
+            resultBox.style.color = "green";
+        } else {
+            resultBox.innerText = "❌ Das ist nicht korrekt. Versuche es nochmal!";
+            resultBox.style.color = "red";
+        }
+    });
+
+    finalWordContainer.appendChild(finalWordLabel);
+    finalWordContainer.appendChild(finalWordInput);
+    finalWordContainer.appendChild(submitButton);
+    crosswordContainer.appendChild(finalWordContainer);
+
+    // Ergebnis-Anzeige
+    const result = document.createElement("div");
+    result.id = "result";
+    result.style.marginTop = "10px";
+    result.style.textAlign = "center";
+    crosswordContainer.appendChild(result);
+
+    popupContent.appendChild(crosswordContainer);
+    document.getElementById("popup").style.display = "flex";
+};
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === " ") { // Leertaste erkannt
+        event.preventDefault(); // Verhindert das Scrollen der Seite
+        const activeElement = document.activeElement;
+
+        // Überprüfen, ob der Fokus in einem Kreuzworträtsel-Eingabefeld ist
+        if (activeElement.tagName === "INPUT" && activeElement.parentElement.classList.contains("crossword-cell")) {
+            // Finde das nächste aktive Eingabefeld
+            const allInputs = Array.from(document.querySelectorAll(".crossword-cell[data-active='true'] input"));
+            const currentIndex = allInputs.indexOf(activeElement);
+            if (currentIndex >= 0 && currentIndex < allInputs.length - 1) {
+                allInputs[currentIndex + 1].focus(); // Fokus auf das nächste Eingabefeld setzen
+            } else if (currentIndex === allInputs.length - 1) {
+                // Wenn es das letzte Feld ist, Fokus auf das erste setzen
+                allInputs[0].focus();
+            }
+        }
+    }
+});
+

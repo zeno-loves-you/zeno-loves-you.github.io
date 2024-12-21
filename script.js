@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 4", message: "Ho ho ho, meine Liebe, heute gibt es ein weiteres Rätsel. Diesmal in Audioform. Viel Spaß damit :-*", audio: "images/ich_liebe_dich_morse.mp3"  },
         { title: "Tag 5", message: "Ho ho ho, meine Liebe, viel Spaß in Brüsel und Amsti. Zur Stärkung für deine lange Anreise: Ein paar Vitamine. :-*" },
         { title: "Tag 6", message: "Ho ho ho, meine Liebe, habe ne gute Zeit mit deinen Freundinnen :-) </br> Deine Drinks gehen heute auf mich, lass es dir gut gehen :-*" },
-        { title: "Tag 7", message: "Ho ho ho, meine Liebe,so ein Party Abend ganz schon mal anstrengend sein. Deswegen solltest du ordentlich Frühstücken. Ein Kaffee und ein Croissant gehen auf mich :-* PS:'Der Weg ist das Ziel' lol.", action: startCrossword },
+        { title: "Tag 7", message: "Ho ho ho, meine Liebe,so ein Party Abend ganz schon mal anstrengend sein. Deswegen solltest du ordentlich Frühstücken. Ein Kaffee und ein Croissant gehen auf mich :-* PS:'Der Weg ist das Ziel' lol." },
         { title: "Tag 8", message: "Ho ho ho, meine Liebe, ich hoffe du hast heute einen schönen Tag in Amsterdam. Dicker Knutscher von mir.& sorry, hoffentlich funktioniert es jetzt. :-*", image: "images/knutsch.jpg" },
         { title: "Tag 9", message: "Ho ho ho, meine Liebe, ich freue mich schon dich heute wieder zu sehen! Hast du ne Idee, woher das Bild kommt? Heute backen wir!", image: "images/zimtL.jpg", image: "images/zimtR.jpg" },
         { title: "Tag 10", message: "Ho ho ho, meine Liebe, heute keine Geschenk, sondern Frühsport. Ab auf die Yoga Matte und wir strechten uns zusammen." },
@@ -626,17 +626,16 @@ const startCrossword = () => {
         { x: 0, y: 10, letter: "N" },
     
         // ROTARY (horizontal, keine Verbindung zu ABSEITS)
-        { x: 12, y: 0, letter: "R", question: "In welchem Club ist deine Mutter?" },
-        { x: 12, y: 1, letter: "O", highlight: true },
+        { x: 12, y: 0, letter: "R"},
+        { x: 12, y: 1, letter: "O", question: "In welchem Club ist deine Mutter?", highlight: true },
         { x: 12, y: 2, letter: "T" },
         { x: 12, y: 3, letter: "A" },
         { x: 12, y: 4, letter: "R" },
         { x: 12, y: 5, letter: "Y" },
 
         // ABSEITS (vertikal, teilt das I mit ACHTZIGEURO)
-        { x: 4, y: 8, letter: "P", question: "Ich bin dein..." },
-        { x: 5, y: 8, letter: "U" },
-        { x: 6, y: 8, letter: "P" },
+        { x: 5, y: 8, letter: "P", question: "Ich bin dein..." },
+        { x: 6, y: 8, letter: "U" },
         { x: 7, y: 8, letter: "P" },
         { x: 8, y: 8, letter: "I", highlight: true },
     

@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 20", message: "Ho ho ho, meine Liebe, glaubst du, dass du mit Lindor richtig liegst? Vllt trifft noch was anderes zu. :-*" },
         { title: "Tag 21", message: "Ho ho ho, meine Liebe, heute gibt es nichts, aber was hat sich an deinem Kalender geändert und wo hast du das schon mal gesehen?" },
         { title: "Tag 22", message: "Ho ho ho, meine Liebe, ein weiteres Rätsel", action: startCrossword },
-        { title: "Tag 23", message: "Heute ist ein schöner Tag für einen heißen Punsch." },
+        { title: "Tag 23", message: "Ho ho ho, meine Liebe, morgen ist Heiligabend. Vielleicht wird es ja noch mal was mit dem Schnee. Daumen drücken und fest dran glauben. Vielleicht hilft des passende Song. :D", link: "https://www.youtube.com/watch?v=Rnil5LyK_B0" },
         { title: "Tag 24", message: "Frohe Weihnachten! Genieße den Tag mit deinen Liebsten." }
     ];
 
@@ -149,7 +149,7 @@ const showPopup = (title, content, media) => {
                 </video>`;
         }
         if (media.link) {
-            mediaHTML += `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Hier klicken für den Film</a>`;
+            mediaHTML += `<a href="${media.link}" target="_blank" style="color: blue; text-decoration: underline; display: block; margin-top: 10px;">Let it snow!</a>`;
         }
 
         // Setze den Pop-up-Inhalt

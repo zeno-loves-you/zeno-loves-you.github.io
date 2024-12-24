@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "Tag 21", message: "Ho ho ho, meine Liebe, heute gibt es nichts, aber was hat sich an deinem Kalender geändert und wo hast du das schon mal gesehen?" },
         { title: "Tag 22", message: "Ho ho ho, meine Liebe, ein weiteres Rätsel", action: startCrossword },
         { title: "Tag 23", message: "Ho ho ho, meine Liebe, morgen ist Heiligabend. Vielleicht wird es ja noch mal was mit dem Schnee. Daumen drücken und fest dran glauben. Vielleicht hilft der passende Song. :D", link: "https://www.youtube.com/watch?v=Rnil5LyK_B0" },
-        { title: "Tag 24", message: "Ho ho ho, meine Liebe, ich hoffe, dass ihr schöne Weihnachtstage in Hannover zusammen habt. Zum Abschluss noch ein kleines Spiel. </br> WO SIND DIE WENZELS?", image: "WoistWenzel.jpg" }
+        { title: "Tag 24", message: "Ho ho ho, meine Liebe, ich hoffe, dass ihr schöne Weihnachtstage in Hannover zusammen habt. Zum Abschluss noch ein kleines Spiel. </br> WO SIND DIE WENZELS?", image: "images/WoistWenzel.jpg" }
     ];
 
     // Helferfunktionen
